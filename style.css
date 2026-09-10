@@ -51,14 +51,24 @@ button[data-testid="baseButton-header"][kind="header"],
 [class*="stDeployButton"],
 .st-emotion-cache-scp8yw,
 .stActionButton,
-button:has(> div > svg[title*="Deploy"]),
-[data-testid="stToolbar"] > div:last-child {
+button:has(> div > svg[title*="Deploy"]) {
     display: none !important;
 }
 
 [class*="stAppToolbar"],
 header[data-testid="stHeader"] {
     display: none !important;
+}
+
+[data-testid="stToolbar"]:has([data-testid="stExpandSidebarButton"]),
+header[data-testid="stHeader"]:has([data-testid="stExpandSidebarButton"]) {
+    display: flex !important;
+}
+
+header[data-testid="stHeader"]:has([data-testid="stExpandSidebarButton"]) {
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 
 .stApp {
