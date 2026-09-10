@@ -1226,9 +1226,7 @@ def render_login() -> None:
 def render_login_form() -> None:
     with st.form("login_form", clear_on_submit=False):
         username = st.text_input("E-mail", placeholder="seu@email.com")
-        show_pw = st.checkbox("Mostrar senha")
-        pw_type = "default" if show_pw else "password"
-        password = st.text_input("Senha", type=pw_type, placeholder="Sua senha", key="login_pass")
+        password = st.text_input("Senha", type="password", placeholder="Sua senha", key="login_pass")
 
         col1, col2 = st.columns([1, 1])
         with col1:
@@ -1283,10 +1281,8 @@ def render_register_form() -> None:
     with st.form("register_form", clear_on_submit=False):
         name = st.text_input("Nome completo", placeholder="Seu nome")
         email = st.text_input("E-mail", placeholder="seu@email.com")
-        reg_show_pw = st.checkbox("Mostrar senha")
-        reg_pw_type = "default" if reg_show_pw else "password"
-        password = st.text_input("Senha", type=reg_pw_type, placeholder="Crie uma senha", key="reg_pass")
-        confirm = st.text_input("Confirmar senha", type=reg_pw_type, placeholder="Confirme a senha", key="reg_confirm")
+        password = st.text_input("Senha", type="password", placeholder="Crie uma senha", key="reg_pass")
+        confirm = st.text_input("Confirmar senha", type="password", placeholder="Confirme a senha", key="reg_confirm")
 
         st.markdown('<div class="login-btn-wrapper">', unsafe_allow_html=True)
         submitted = st.form_submit_button("Criar Conta", use_container_width=True)
