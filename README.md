@@ -156,6 +156,20 @@ APP_URL = "https://SEU-APP.streamlit.app"
 > No plano gratuito o app hiberna após um período sem acesso; a primeira visita
 > depois disso pode demorar ~30 segundos para acordar.
 
+### Se aparecer `ModuleNotFoundError` no Streamlit Cloud
+
+Isso normalmente acontece quando o app foi criado antes de um commit que adicionou
+uma dependência nova (por exemplo, `supabase`) ou quando o `requirements.txt` mudou
+e o ambiente ainda não foi reinstalado.
+
+1. Na página do app, clique em **Manage app** → menu **⋯** → **Reboot app**.
+2. Aguarde o build; o log deve mostrar `Installing dependencies` e a instalação do
+   `supabase`.
+3. Sempre que alterar o `requirements.txt`, faça um **Reboot app**.
+4. A versão do Python é escolhida na criação e **não pode ser alterada depois**.
+   Se o log mostrar uma versão incompatível (por exemplo, 3.14 com pacotes antigos),
+   exclua o app e crie novamente escolhendo **Python 3.13**.
+
 ### Configurar o Supabase para a URL pública
 
 Em **Authentication → URL Configuration**:
