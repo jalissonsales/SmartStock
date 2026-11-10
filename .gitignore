@@ -3,5 +3,7 @@ apiKey.txt
 __pycache__/
 *.pyc
 .env
+.venv/
 .streamlit/*.txt
+streamlit_*.txt
 .users.json
