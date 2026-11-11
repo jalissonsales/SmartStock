@@ -3217,7 +3217,7 @@ def render_login_form() -> None:
     if oauth_url:
         st.markdown(
             f"""
-            <a class="oauth-google-btn" href="{escape_html(oauth_url)}" target="_self" rel="noopener noreferrer">
+            <a class="oauth-google-btn" href="{escape_html(oauth_url)}" target="_blank" rel="noopener noreferrer">
                 <span class="oauth-google-icon">G</span>
                 <span>Entrar com Google</span>
             </a>

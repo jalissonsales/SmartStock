@@ -170,6 +170,19 @@ e o ambiente ainda não foi reinstalado.
    Se o log mostrar uma versão incompatível (por exemplo, 3.14 com pacotes antigos),
    exclua o app e crie novamente escolhendo **Python 3.13**.
 
+### Se o login Google mostrar `403. Isto é um erro.` no Streamlit Cloud
+
+O app publicado no Streamlit Community Cloud roda dentro de um `iframe` com
+`sandbox`. Se o botão do Google abrir o provedor dentro desse `iframe`
+(`target="_self"`), o Google recusa a exibição em frame e responde com a página
+genérica de erro 403 — mesmo com o OAuth e o consent screen corretos.
+
+- No código, o link "Entrar com Google" usa `target="_blank"` para abrir o
+  provedor em uma aba própria (fora do `iframe`). Não troque para `_self`.
+- Esse erro **não** aparece em `http://localhost:8501`, porque localmente não há
+  `iframe` em volta do app.
+- Se você vê 403 com outro provedor ou link OAuth novo, mantenha `target="_blank"`.
+
 ### Configurar o Supabase para a URL pública
 
 Em **Authentication → URL Configuration**:
